@@ -40,18 +40,8 @@ public class Hooks {
 
     @Before
     public void openBrowser(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox",
-//                "--single-process", -> Bikin error di windows
-                "--ignore-ssl-errors=yes",
-                "--ignore-certificate-errors",
-                "--window-size=1280,800",
-                "--remote-allow-origins=*"
-//                            , "headless"
-        );
-
         //inisiasi library selenium
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver(GenerateDriverChrome());
 
         String appUrl = "https://www.saucedemo.com/";
         driver.get(appUrl);//fungsi untuk ngebuka link html
